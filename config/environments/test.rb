@@ -38,7 +38,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp
-  host = 'http://api.infinitysolutionsapp.com/' #replace with your own url
+  host = 'http://kamarote-api.infinitysolutionsapp.com' #replace with your own url
   config.action_mailer.default_url_options = { host: host }
   
   # SMTP settings for gmail
