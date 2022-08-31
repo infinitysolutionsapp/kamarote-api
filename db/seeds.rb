@@ -6,9 +6,6 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-game_houses = GameHouse.create([{ name: "LOTOFÁCIL" }, { name: "MEGA-SENA" }])
-game_categories = GameCategory.create([{ name: "ERRE 4" }, { name: "ERRE 7" }])
-
 User.create({username:"Rafael",password:"123456", email:"ferreira.rafaelc@gmail.com"})
 
 
