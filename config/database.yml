@@ -8,26 +8,26 @@ default: &default
   adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  host: infinity-database.cxpbpshoe9ob.us-east-1.rds.amazonaws.com
+  host: <%= ENV['DATABASE_HOST'] %>
 
 
 development:
   <<: *default
-  database: karotedb
-  username: postgres
-  password: IS200422#s
+  database: kamarotedb
+  username:  <%= ENV['DATABASE_USER'] %>
+  password:  <%= ENV['DATABASE_PASSWORD'] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: karotedb
-  username: postgres
-  password: IS200422#s
+  database: kamarotedb
+  username:  <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
 
 production:
   <<: *default
-  database: karotedb
-  username: postgres
-  password: IS200422#s
+  database: kamarotedb
+  username:  <%= ENV['DATABASE_USER'] %>
+  password:  <%= ENV['DATABASE_PASSWORD'] %>
