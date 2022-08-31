@@ -16,6 +16,7 @@ Rails.application.configure do
 
   # Enable server timing
   config.server_timing = true
+  config.hosts << "kamarote-api.infinitysolutionsapp.com"
 
   config.action_mailer.delivery_method = :smtp
   host = 'http://kamarote-api.infinitysolutionsapp.com/' #replace with your own url

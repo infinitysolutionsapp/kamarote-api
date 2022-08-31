@@ -40,7 +40,8 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   host = 'http://kamarote-api.infinitysolutionsapp.com/' #replace with your own url
   config.action_mailer.default_url_options = { host: host }
-  
+  config.hosts << "kamarote-api.infinitysolutionsapp.com"
+
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",

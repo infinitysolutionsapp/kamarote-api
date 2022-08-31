@@ -55,6 +55,7 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "loto_api_production"
 
+  config.hosts << "kamarote-api.infinitysolutionsapp.com"
 
   config.action_mailer.delivery_method = :smtp
   host = 'http://kamarote-api.infinitysolutionsapp.com/' #replace with your own url
