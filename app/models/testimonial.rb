@@ -1,2 +1,0 @@
-class Testimonial < ApplicationRecord
-end
