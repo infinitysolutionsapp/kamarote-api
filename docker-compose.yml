@@ -6,10 +6,10 @@ services:
       - ./tmp/db:/var/lib/postgresql/data
   linkedin.rails.web:
     build: .
-    command: bundle exec rails s -p 4003 -b '0.0.0.0'
+    command: bundle exec rails s -p 5000 -b '0.0.0.0'
     volumes:
       - .:/myapp
     ports:
-      - "4003:4003"
+      - "5000:5000"
     depends_on:
       - linkedin.rails.postgres.db
