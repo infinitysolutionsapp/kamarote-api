@@ -18,8 +18,6 @@ class PartnersController < ApplicationController
   def create
     @partner = Partner.new(partner_params)
     @partner.image.attach(params[:image])
-
-    p @partner, "partner"
     if @partner.save
       render json: @partner, status: :created, location: @partner
     else
