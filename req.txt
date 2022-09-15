@@ -1,0 +1,5 @@
+DATABASE_USER="postgres"
+DATABASE_PASSWORD="IS200422#s"
+DATABASE_HOST="infinity-database.cxpbpshoe9ob.us-east-1.rds.amazonaws.com"
+ACCESS_KEY_ID="AKIAT2CZGWLHM2TIE272"
+SECRET_ACCESS_KEY="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"
