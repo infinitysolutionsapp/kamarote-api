@@ -27,11 +27,12 @@ class AccountsController < ApplicationController
   # PATCH/PUT /accounts/1
   def update
 
+    account_object = params[:account]
     user_params = params[:user]
     user = User.find(user_params[:id])
     user.update(user_params)
 
-    if @account.update(account_params)
+    if @account.update(account_object)
       render json: @account
     else
       render json: @account.errors, status: :unprocessable_entity
