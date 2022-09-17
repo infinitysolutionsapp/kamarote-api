@@ -48,8 +48,7 @@ class AccountsController < ApplicationController
     def set_account
       @account = Account.find(params[:id])
     end
-
-    # Only allow a list of trusted parameters through.
+    # Only allow a lis//////////////////////////////////t of trusted parameters through.
     def account_params
       params.require(:account)
     end
