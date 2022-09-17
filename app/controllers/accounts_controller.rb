@@ -26,6 +26,11 @@ class AccountsController < ApplicationController
 
   # PATCH/PUT /accounts/1
   def update
+
+    user_params = params[:user]
+    user = User.find(user_params[:id])
+    user.update(user_params)
+
     if @account.update(account_params)
       render json: @account
     else
@@ -46,6 +51,6 @@ class AccountsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def account_params
-      params.require(:account).permit(:balance, :user_id, :agency, :account)
+      params.require(:account)
     end
 end
