@@ -27,12 +27,11 @@ class AccountsController < ApplicationController
   # PATCH/PUT /accounts/1
   def update
 
-    account_object = params[:account]
-    user_params = params[:user]
+    # user_params = params[:user]
     user = User.find(user_params[:id])
     user.update(user_params)
 
-    if @account.update(account_object)
+    if @account.update(account_params)
       render json: @account
     else
       render json: @account.errors, status: :unprocessable_entity
@@ -49,8 +48,15 @@ class AccountsController < ApplicationController
     def set_account
       @account = Account.find(params[:id])
     end
-    # Only allow a lis//////////////////////////////////t of trusted parameters through.
+
+    # Only allow a list of trusted parameters through.
     def account_params
-      params.require(:account)
+      params.require(:account).permit(:balance, :user_id, :agency, :account, :user)
+    end
+
+    def user_params
+      params.require(:user).permit(
+        :avatar, :name, :id, :username, :email, :password, :password_confirmation, :cell, :tel, :document, :street, :city, :state, :zip_code  
+      )
     end
 end
