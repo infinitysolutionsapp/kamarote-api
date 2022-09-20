@@ -10,7 +10,14 @@ class UsersController < ApplicationController
   
     # GET /users/{username}
     def show
-      render json: {user: @user, account: Account.where(user_id: @user.id)}, status: :ok
+      address_data = {
+        street:   @user[:street],
+        city:     @user[:city],
+        state:    @user[:state],
+        zip_code: @user[:zip_code]
+
+      }
+      render json: {address: address_data,  user: @user, account: Account.where(user_id: @user.id)}, status: :ok
     end
 
     def me
@@ -19,7 +26,7 @@ class UsersController < ApplicationController
       @decoded = JsonWebToken.decode(header)
       @current_user = User.find(@decoded[:user_id])
       
-      render json: {user: @current_user, account: Account.where(user_id: @current_user.id)}, status: :ok
+      render json: {address: {street: @current_user[:street], city: @current_user[:city], state: @current_user[:state], zip_code: @current_user[:zip_code]  }, user: @current_user, account: Account.where(user_id: @current_user.id)}, status: :ok
     end
   
     # params.require(:account).permit(:balance, :user_id, :agency, :account)/////////////////////////////////
