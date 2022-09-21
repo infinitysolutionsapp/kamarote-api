@@ -17,7 +17,7 @@ class UsersController < ApplicationController
         zip_code: @user[:zip_code]
 
       }
-      render json: {address: address_data,  user: @user, account: Account.where(user_id: @user.id)}, status: :ok
+      render json: {image: @user.image.url, address: address_data,  user: @user, account: Account.where(user_id: @user.id)}, status: :ok
     end
 
     def me
@@ -34,6 +34,7 @@ class UsersController < ApplicationController
     # POST /users
     def create
       @user = User.new(user_params)
+      @user.image.attach(params[:image])
 
       if @user.save
         @account = Account.new({ balance: 0, agency: "teste" , account: "teste", user_id: @user.id})
@@ -48,11 +49,17 @@ class UsersController < ApplicationController
   
     # PUT /users/{username}
     def update
+      @user.image.attach(params[:image])
       unless @user.update(user_params)
         render json: { errors: @user.errors.full_messages },
                status: :unprocessable_entity
       end
     end
+
+    def set_url
+      ActiveStorage::Current.url_options = { protocol: request.protocol, host: request.host, port: request.port }
+    end
+    
   
     # DELETE /users/{username}
     def destroy
