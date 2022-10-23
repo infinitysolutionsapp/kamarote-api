@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_one :account
+    has_one :account, dependent: :delete
     has_one_attached :image
 
 

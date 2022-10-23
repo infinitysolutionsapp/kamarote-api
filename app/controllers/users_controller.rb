@@ -37,7 +37,7 @@ class UsersController < ApplicationController
       @user.image.attach(params[:image])
 
       if @user.save
-        @account = Account.new({ balance: 0, agency: "teste" , account: "teste", user_id: @user.id})
+        @account = Account.new({ discount_balance: 0 ,balance: 0, agency: "teste" , account: "teste", user_id: @user.id})
         @account.save
 
         render json: @user, status: :created
