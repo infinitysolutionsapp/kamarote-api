@@ -27,7 +27,10 @@ class PartnersController < ApplicationController
 
   # PATCH/PUT /partners/1
   def update
-    @partner.image.attach(params[:image])
+    if params[:image]
+      @partner.image.attach(params[:image])
+    end
+
     if @partner.update(partner_params)
       render json: @partner
     else
